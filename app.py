@@ -123,8 +123,8 @@ st.subheader('¿Es igual para todos?')
 
 st.markdown('Antes de la pandemia, el comportamiento de los planteles a nivel departamental ya mostraba una tendencia, aunque leve, a la disminución de la calidad \
             educativa medida en términos de la clasificación de los colegios: aumentos en la cantidad de colegios en categorias inferiores (C y D) que se \
-            acompañaba de una disminución de la cantedidad de colegios en categorias superiores (A+ y A).')
-st.info('Si. Pero la perdida de calidad educativa tiene mayor intensidad en los departamentos más pobres, aquellos que se encuentran en la periferia del territorio colombiano.')
+            acompañaba de una disminución de la cantidad de colegios en categorias superiores (A+ y A).')
+st.info('Sí. Pero la perdida de calidad educativa tiene mayor intensidad en los departamentos más pobres, aquellos que se encuentran en la periferia del territorio colombiano.')
 
 colu2, _, colu3, _= st.columns(4)
 columnas2 = list(sorted(df['Departamento'].unique()))
