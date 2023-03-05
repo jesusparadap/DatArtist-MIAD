@@ -2,7 +2,7 @@
 
 A continuación, se presenta el modelado de datos y la documentación de la misma.
 
-* [Modelado de datos](Modelado_icfes_proyecto.md): En el link, se puede ir al Jupyter Notebook en el que se realizó el modelado de datos.
+* [Modelado de datos](Modelado_icfes_proyecto.ipynb): En el link, se puede ir al Jupyter Notebook en el que se realizó el modelado de datos.
 * Documentación: A continuación, se puede ver la documentación relacionada con el modelado y la actualización de los datos.
 
 **Variables en base de datos original**
@@ -50,7 +50,7 @@ Para cada año, desde el 2017 al 2021 se cargaron dos periodos que corresponden 
 4. Se estandarizaron los nombres de los municipios, de los departamentos y de los colegios. Para los municipios y departamentos, se realizó el proceso de estandarización con base en los códigos *divipola* del DANE.
 5. Así, se obtuvo la base final con la cual se realizó el Dashboard de visualizaciones.
 
-Para más detalle, pueden ver el modelado de datos [aquí](Modelado_icfes_proyecto.md). 
+Para más detalle, pueden ver el modelado de datos [aquí](Modelado_icfes_proyecto.ipynb). 
   
 **Variables luego de modeladas**
 
