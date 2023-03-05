@@ -4,6 +4,8 @@
 
 **Variables en base de datos original**
 
+Teniendo en cuenta que estamos manejando información de la base de clasificación de planteles del ICFES de los años 2017-2021, se describe a continuación la estructura que tiene cada archivo de datos de los años mencionados. 
+
 | Nombre | Tipo de dato | Descripción |
 | --- | --- | --- |
 | PERIODO | Numérico | Periodo de presentación de la prueba |
@@ -29,5 +31,19 @@
 
 *Proceso de modelado* 
 
+Para cada año, desde el 2017 al 2021 se cargaron dos periodos que corresponden a las dos fechas en las que se desarrolla el examen del ICFES, a excepción del año 2021 para el que se tiene solo 1 periodo. A continuación, se describen los procedimientos generales que se realizaron en la etapa del modelado: 
 
+1. Se agregaron nuevas variables identificadoras: 
+  | Variable agregada | Tipo de dato | Descripción |
+  | Fuente | | |
+  | Anio | Numérico | Año de presentación de la prueba | 
+  | Periodo | Numérico | Fecha referente de la presentación de la prueba (1: Primer semestre del año, 2: Segundo semestre del año) | 
+  | Sort_global | | |
+2. Se filtraron las columnas de interés. 
+3. Se modificaron los nombres de las variables para que sean fáciles de usar en la visualización.
+4. Se estandarizaron los nombres de los municipios, de los departamentos y de los colegios. Para los municipios y departamentos, se realizó el proceso de estandarización con base en los códigos *divipola* del DANE.
+5. Así, se obtuvo la base final con la cual se realizó el Dashboard de visualizaciones.
+
+Para más detalle, pueden ver el modelado de datos [aquí](Modelado_icfes_proyecto.md). 
+  
 **Variables luego de modeladas**
