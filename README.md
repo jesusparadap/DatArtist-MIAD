@@ -33,12 +33,14 @@ Teniendo en cuenta que estamos manejando información de la base de clasificaci�
 
 Para cada año, desde el 2017 al 2021 se cargaron dos periodos que corresponden a las dos fechas en las que se desarrolla el examen del ICFES, a excepción del año 2021 para el que se tiene solo 1 periodo. A continuación, se describen los procedimientos generales que se realizaron en la etapa del modelado: 
 
-1. Se agregaron nuevas variables identificadoras: 
+1. Se agregaron nuevas variables identificadoras:
+ 
 | Variable agregada | Tipo de dato | Descripción |
-| Fuente | | |
+| Fuente | Texto | alo2 |
 | Anio | Numérico | Año de presentación de la prueba | 
 | Periodo | Numérico | Fecha referente de la presentación de la prueba (1: Primer semestre del año, 2: Segundo semestre del año) | 
-| Sort_global | | |
+| Sort_global | Numérico | alo1 |
+
 2. Se filtraron las columnas de interés. 
 3. Se modificaron los nombres de las variables para que sean fáciles de usar en la visualización.
 4. Se estandarizaron los nombres de los municipios, de los departamentos y de los colegios. Para los municipios y departamentos, se realizó el proceso de estandarización con base en los códigos *divipola* del DANE.
