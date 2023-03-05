@@ -1,6 +1,6 @@
 # Documentación de modelado de datos
 
-A continuación, se presenta el modelado de datos y la documentación de la misma.
+A continuación, se presenta el modelado de datos y su documentación.
 
 * [Modelado de datos](Modelado_icfes_proyecto.ipynb): En el link, se puede ir al Jupyter Notebook en el que se realizó el modelado de datos.
 * Documentación: A continuación, se puede ver la documentación relacionada con el modelado y la actualización de los datos.
