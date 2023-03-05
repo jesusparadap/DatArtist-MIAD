@@ -33,9 +33,10 @@ Teniendo en cuenta que estamos manejando información de la base de clasificaci�
 
 Para cada año, desde el 2017 al 2021 se cargaron dos periodos que corresponden a las dos fechas en las que se desarrolla el examen del ICFES, a excepción del año 2021 para el que se tiene solo 1 periodo. A continuación, se describen los procedimientos generales que se realizaron en la etapa del modelado: 
 
-Se agregaron nuevas variables identificadoras:
+1. Se agregaron nuevas variables identificadoras:
  
 | Variable agregada | Tipo de dato | Descripción |
+| --- | --- | --- |
 | Fuente | Texto | alo2 |
 | Anio | Numérico | Año de presentación de la prueba | 
 | Periodo | Numérico | Fecha referente de la presentación de la prueba (1: Primer semestre del año, 2: Segundo semestre del año) | 
