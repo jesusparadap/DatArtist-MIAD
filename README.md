@@ -37,10 +37,10 @@ Para cada año, desde el 2017 al 2021 se cargaron dos periodos que corresponden 
  
 | Variable agregada | Tipo de dato | Descripción |
 | --- | --- | --- |
-| Fuente | Texto | alo2 |
+| Fuente | Texto | Archivo del cual se leyó la información |
 | Anio | Numérico | Año de presentación de la prueba | 
 | Periodo | Numérico | Fecha referente de la presentación de la prueba (1: Primer semestre del año, 2: Segundo semestre del año) | 
-| Sort_global | Numérico | alo1 |
+| Sort_global | Numérico | Identificador del archivo |
 
 2. Se filtraron las columnas de interés. 
 3. Se modificaron los nombres de las variables para que sean fáciles de usar en la visualización.
@@ -50,3 +50,13 @@ Para cada año, desde el 2017 al 2021 se cargaron dos periodos que corresponden 
 Para más detalle, pueden ver el modelado de datos [aquí](Modelado_icfes_proyecto.md). 
   
 **Variables luego de modeladas**
+
+| Nombre | Tipo de dato | Descripción |
+| --- | --- | --- |
+| Tipo | Texto | Naturaleza del establecimiento educativo (OFICIAL:Establecimiento Publico, NO OFICIAL: Establecimiento Privado) |
+| Calendario | Texto | Calendario del establecimiento educativo (A: Calendario A, B: Calendario B, O: Calendario Flexible u Otro) |
+| Clasificacion | Texto | Categoría en la cual se encentra el establecimiento educativo |
+| Anio_prueba | Numérico | Año de presentación de la prueba |
+| Nombre_Colegio | Texto | Nombre del establecimiento educativo |
+| Municipio | Texto | Nombre del municipio al que pertenece el establecimiento educativo |
+| Departamento | Texto | Nombre del departamento al que pertenece el establecimiento educativo |
