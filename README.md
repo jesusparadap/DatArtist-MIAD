@@ -36,30 +36,33 @@ Teniendo en cuenta que estamos manejando información de la base de clasificaci�
 
 Para cada año, desde el 2017 al 2021 se cargaron dos periodos que corresponden a las dos fechas en las que se desarrolla el examen del ICFES, a excepción del año 2021 para el que se tiene solo 1 periodo. A continuación, se describen los procedimientos generales que se realizaron en la etapa del modelado: 
 
-1. Se agregaron nuevas variables identificadoras:
- 
+1. Se debe crear una lista de contiene el nombre de cada archivo y el año en el que se realizó la clasificación de los planteles (ejemplo: ['SB11-CLASIFI-PLANTELES-20171.csv', 2017]). Esto permitira generar los identificadores de la fuente original de los datos en caso de que se presenten atipicidades y se requiera consultar directamente en la fuente, y realizar los filtros correspondientes al año de presentación de la prueba saber 11. A continuación, se presenta una descripción de las variables generadas:
+
 | Variable agregada | Tipo de dato | Descripción |
 | --- | --- | --- |
 | Fuente | Texto | Archivo del cual se leyó la información |
 | Anio | Numérico | Año de presentación de la prueba | 
-| Periodo | Numérico | Fecha referente de la presentación de la prueba (1: Primer semestre del año, 2: Segundo semestre del año) | 
-| Sort_global | Numérico | Identificador del archivo |
 
-2. Se filtraron las columnas de interés. 
-3. Se modificaron los nombres de las variables para que sean fáciles de usar en la visualización.
-4. Se estandarizaron los nombres de los municipios, de los departamentos y de los colegios. Para los municipios y departamentos, se realizó el proceso de estandarización con base en los códigos *divipola* del DANE.
-5. Así, se obtuvo la base final con la cual se realizó el Dashboard de visualizaciones.
+2. Teniendo en cuenta que la base de datos tiene información que no es de interés, se prescinde de algunas columnas que no aportan información adicional como el tipo de población que maneja el establecimiento educativo (COLE_GENEROPOBLACION), la cantidad de matriculados y evaluados en los últimos 3 años (MATRICULADOS_ULTIMOS_3 y EVALUADOS_ULTIMOS_3), y los índices en cada una de las pruebas (matemáticas, naturales, sociales, lectura, inglés y total). Dicho de otra forma, las variables con información de interés son: nombre y código del establecimiento educativo, datos de identificación geográfica del establecimiento educativo como son el municipio y departamento, con sus respectivos codigos DANE, la naturaleza del establecimiento educativo (Oficial o No Oficial), el calendario A o B, y la categoria o clasificación asignada por el ICFES al establecimiento educativo, así como a las variables generadas en el ítem anterior.
+
+3. Se eliminan los registros de los establecimientos educativos en calendario diferente a 'A' o 'B'. Específicamente, se elimina la categoria 'O' de colegios en calendario flexible u otros que corresponde al 0.1% del total de registros.
+
+4. Se modificaron los nombres de las variables para que sean fáciles de usar en la visualización. A continuación, se presentan los nombres originales y los nuevos nombres:
+
+| Nombre original | Nuevo nombre | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| COLE_NATURALEZA | Tipo | Texto | Naturaleza del establecimiento educativo (OFICIAL:Establecimiento Publico, NO OFICIAL: Establecimiento Privado) |
+| COLE_CALENDARIO_COLEGIO | Calendario | Texto | Calendario del establecimiento educativo (A: Calendario A, B: Calendario B) |
+| COLE_CATEGORIA | Clasificacion | Texto | Categoría en la cual se encentra el establecimiento educativo |
+| Anio | Anio_prueba | Numérico | Año de presentación de la prueba |
+| COLE_INST_NOMBRE | Nombre_Colegio | Texto | Nombre del establecimiento educativo |
+| COLE_MPIO_MUNICIPIO | Municipio | Texto | Nombre del municipio al que pertenece el establecimiento educativo |
+| COLE_DEPTO_COLEGIO | Departamento | Texto | Nombre del departamento al que pertenece el establecimiento educativo |
+
+5. Estandarización de los establecimientos educativos: a partir del código DANE y el nombre de los establecimientos educativos contenidos en la base de datos, se crea en un archivo adicional los identificadores unicos (se eliminan los duplicados) y se cruza con la base de datos original, de manera que se eliminan las distintas variaciones en que se puede escribir el nombre de un mismo establecimiento educativo (ejemplo: Institución o Institucion, cuya diferencia radica en la tilde, o abreviaturas tales como: IE o I.E.). Como resultado, antes de la estandarización se tenian 12945 establecimientos educativos identificados con único código DANE y 12402 nombres de colegios asociados, a igual cantidad de establecimientos despues de la estandarización, pero solo 9936 nombres de colegios, se suprimieron más de 3000 variaciones en los nombres para el mismo establecimiento educativo.
+
+6. Estandarización de la información geográfica: se utiliza la clasificación DIVIPOLA del DANE que se puede consultar [en este enlace](https://geoportal.dane.gov.co/geovisores/territorio/consulta-divipola-division-politico-administrativa-de-colombia/#:~:text=La%20Divipola%20es%20un%20est%C3%A1ndar,municipales%20en%20el%20%C3%A1rea%20rural.) con las variables Código del Municipio, Nombre del Municipio y Departamento y se cruza con los códigos de municipios de la base de datos del icfes. Como resultado de este proceso se tiene una base de datos con información de 33 departamentos y 1114 municipios/áreas no municipalizadas con nombres estandarizados.
+
+5. Así, se obtuvo la base final con la cual se realizó el Dashboard de visualizaciones que corresponde a la base con las variables esbozadas en el ítem 4.
 
 Para más detalle, pueden ver el modelado de datos [aquí](Modelado_icfes_proyecto.md). 
-  
-**Variables luego de modeladas**
-
-| Nombre | Tipo de dato | Descripción |
-| --- | --- | --- |
-| Tipo | Texto | Naturaleza del establecimiento educativo (OFICIAL:Establecimiento Publico, NO OFICIAL: Establecimiento Privado) |
-| Calendario | Texto | Calendario del establecimiento educativo (A: Calendario A, B: Calendario B, O: Calendario Flexible u Otro) |
-| Clasificacion | Texto | Categoría en la cual se encentra el establecimiento educativo |
-| Anio_prueba | Numérico | Año de presentación de la prueba |
-| Nombre_Colegio | Texto | Nombre del establecimiento educativo |
-| Municipio | Texto | Nombre del municipio al que pertenece el establecimiento educativo |
-| Departamento | Texto | Nombre del departamento al que pertenece el establecimiento educativo |
