@@ -68,7 +68,7 @@ with open("Bases.zip", "rb") as fp:
     )
 
 ## Info del modelado de datos 
-st.sidebar.info('Para ver el modelado de datos y su documentación puede dar click [aquí](https://alejandrajerez19.github.io/DatArtist-MIAD/)')
+st.sidebar.info('Para ver el modelado de datos y su documentación puede dar click [aquí](https://github.com/jesusparadap/DatArtist-MIAD/blob/master/README.md)')
 
 ## Parte 2
 @st.cache_data
